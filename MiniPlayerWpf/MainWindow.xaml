@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniPlayerWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MiniPlayer" Height="450" Width="400">
     <Grid>
         <Label HorizontalContentAlignment="Right" Content="ID" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="68"/>
         <ComboBox x:Name="songIdComboBox" HorizontalAlignment="Left" Height="25" Margin="78,10,0,0" 
@@ -17,7 +17,9 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Label x:Name="songTitle" Content="title" Height="30" />
-        <Button x:Name="playButton" Content="Play" Margin="10,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Click="playButton_Click"/>
-        <Button x:Name="stopButton" Content="Stop" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Click="stopButton_Click"/>
+        <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="center" VerticalAlignment="Bottom">
+            <Button x:Name="playButton" Content="Play" Margin="5" Width="75" Click="playButton_Click" />
+            <Button x:Name="stopButton" Content="Stop" Margin="5" Width="75" Click="stopButton_Click" />
+        </StackPanel>
     </Grid>
 </Window>
