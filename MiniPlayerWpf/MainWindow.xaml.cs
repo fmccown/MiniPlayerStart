@@ -24,25 +24,25 @@ namespace MiniPlayerWpf
             try
             {
                 musicRepo = new MusicRepo();
+
+                // Put the ids into an ObservableCollection, which has methods to add and remove items.
+                // The UI will update itself automatically if any changes are made to this collection.
+                songIds = new ObservableCollection<int>(musicRepo.SongIds);
+
+                // Bind the song IDs to the combo box
+                songIdComboBox.ItemsSource = songIds;
+
+                // Select the first item
+                if (songIdComboBox.Items.Count > 0)
+                {
+                    songIdComboBox.SelectedIndex = 0;
+                }
             }
             catch (Exception e)
             {
                 MessageBox.Show("Error loading file: " + e.Message, "MiniPlayer", MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
-            }
-
-            // Put the ids in an ObservableCollection, which has methods to add and remove items.
-            // The UI will update itself automatically if any changes are made to this collection.
-            songIds = new ObservableCollection<int>(musicRepo.SongIds);
-
-            // Bind the song IDs to the combo box
-            songIdComboBox.ItemsSource = songIds;
-
-            // Select the first item
-            if (songIdComboBox.Items.Count > 0)
-            {
-                songIdComboBox.SelectedIndex = 0;
-            }
+            }            
         }
 
         private void songIdComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

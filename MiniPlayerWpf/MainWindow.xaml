@@ -7,15 +7,17 @@
         mc:Ignorable="d"
         Title="MiniPlayer" Height="450" Width="400">
     <Grid>
-        <Label HorizontalContentAlignment="Right" Content="ID" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="68"/>
-        <ComboBox x:Name="songIdComboBox" HorizontalAlignment="Left" Height="25" Margin="78,10,0,0" 
-                  VerticalAlignment="Top" Width="60" SelectionChanged="songIdComboBox_SelectionChanged">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="center" VerticalAlignment="Top">
+            <Label Content="ID" Margin="5" />
+            <ComboBox x:Name="songIdComboBox" Height="25" Margin="5" Width="60"
+                  SelectionChanged="songIdComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
         <Label x:Name="songTitle" Content="title" Height="30" />
         <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="center" VerticalAlignment="Bottom">
             <Button x:Name="playButton" Content="Play" Margin="5" Width="75" Click="playButton_Click" />
