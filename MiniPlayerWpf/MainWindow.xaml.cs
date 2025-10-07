@@ -11,9 +11,9 @@ namespace MiniPlayerWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly MusicRepo musicRepo;
+        private readonly MusicRepo? musicRepo;
         private readonly MediaPlayer mediaPlayer;
-        private readonly ObservableCollection<int> songIds;
+        private readonly ObservableCollection<int>? songIds;
 
         public MainWindow()
         {
@@ -40,7 +40,8 @@ namespace MiniPlayerWpf
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error loading file: " + e.Message, "MiniPlayer", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error loading file: " + e.Message, "MiniPlayer", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
             }            
         }
@@ -51,8 +52,8 @@ namespace MiniPlayerWpf
             if (songIdComboBox.SelectedItem != null)
             {
                 int songId = Convert.ToInt32(songIdComboBox.SelectedItem);
-                Song? s = musicRepo.GetSong(songId);
-                if (s is not null)
+                Song? s = musicRepo?.GetSong(songId);
+                if (s != null)
                 {
                     songTitle.Content = s.Title;
                     if (s.Filename is not null)
