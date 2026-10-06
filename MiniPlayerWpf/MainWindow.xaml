@@ -10,7 +10,7 @@
         <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="center" VerticalAlignment="Top">
             <Label Content="ID" Margin="5" />
             <ComboBox x:Name="songIdComboBox" Height="25" Margin="5" Width="60"
-                  SelectionChanged="songIdComboBox_SelectionChanged">
+          SelectionChanged="songIdComboBox_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}" />

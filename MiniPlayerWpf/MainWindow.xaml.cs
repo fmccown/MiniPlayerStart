@@ -1,8 +1,14 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace MiniPlayerWpf
 {
@@ -40,10 +46,10 @@ namespace MiniPlayerWpf
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error loading file: " + e.Message, "MiniPlayer", 
+                MessageBox.Show("Error loading file: " + e.Message, "MiniPlayer",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
-            }            
+            }
         }
 
         private void songIdComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -52,13 +58,13 @@ namespace MiniPlayerWpf
             if (songIdComboBox.SelectedItem != null)
             {
                 int songId = Convert.ToInt32(songIdComboBox.SelectedItem);
-                Song? s = musicRepo?.GetSong(songId);
-                if (s != null)
+                Song? song = musicRepo?.GetSong(songId);
+                if (song != null)
                 {
-                    songTitle.Content = s.Title;
-                    if (s.Filename is not null)
+                    songTitle.Content = song.Title;
+                    if (song.Filename is not null)
                     {
-                        mediaPlayer.Open(new Uri(s.Filename));
+                        mediaPlayer.Open(new Uri(song.Filename));
                     }
                 }
             }

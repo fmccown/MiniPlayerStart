@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Data;
+﻿using System.Data;
 
 namespace MiniPlayerWpf
 {
@@ -20,8 +17,8 @@ namespace MiniPlayerWpf
             get
             {
                 return from row in musicDataSet?.Tables["song"]?.AsEnumerable()
-                          orderby row["id"]
-                          select Convert.ToInt32(row["id"]);
+                       orderby row["id"]
+                       select Convert.ToInt32(row["id"]);
             }
         }
 
@@ -139,7 +136,7 @@ namespace MiniPlayerWpf
         {
             DataTable? table = musicDataSet.Tables["song"];
             if (table != null)
-            { 
+            {
                 // Only one row should be selected
                 foreach (DataRow row in table.Select("id=" + songId))
                 {
